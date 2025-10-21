@@ -1,0 +1,25 @@
+project_id = "ifwcgzdznxphmmcsuufq"
+
+[functions.create-checkout-session]
+verify_jwt = true
+
+[functions.create-customer-portal]  
+verify_jwt = true
+
+[functions.check-subscription-status]
+verify_jwt = true
+
+[functions.fetch-amazon-products]
+verify_jwt = false
+
+[functions.fetch-homedepot-products]
+verify_jwt = false
+
+[functions.fetch-products]
+verify_jwt = false
+
+[functions.fetch-product-details]
+verify_jwt = false
+
+[functions.get-app-config]
+verify_jwt = false

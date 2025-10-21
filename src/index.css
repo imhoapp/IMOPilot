@@ -1,0 +1,225 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 9%;
+
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 9%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 320 3% 46%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 89%;
+    --input: 0 0% 89%;
+    --ring: 0 0% 63%;
+
+    --radius: 0.5rem;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary)));
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 0 0% 9%;
+    --sidebar-primary: 0 0% 9%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 0 0% 96%;
+    --sidebar-accent-foreground: 0 0% 9%;
+    --sidebar-border: 0 0% 89%;
+    --sidebar-ring: 0 0% 63%;
+  }
+
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  /* Glass effect */
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-sm border border-border shadow-sm;
+  }
+
+  /* Hover effects */
+  .hover-lift {
+    @apply transition-all duration-200 hover:scale-[1.02] hover:shadow-lg;
+  }
+  
+  .hover-glow {
+    @apply transition-all duration-200 hover:shadow-md;
+  }
+
+  /* Clean text styling */
+  .text-gradient {
+    @apply text-foreground;
+  }
+
+  /* Enhanced parallax animations with more movement - disabled for JS parallax */
+  /* CSS animations removed to prevent conflict with JavaScript parallax scrolling */
+  
+  /* Parallax scroll effect */
+  .parallax-background {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+  
+  .parallax-slow {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+  
+  .parallax-medium {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+  
+  .parallax-fast {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+
+  .parallax-ultra-slow {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+
+  .parallax-drift {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes parallax-float {
+  0%, 100% { 
+    transform: translateY(0px) translateX(0px) scale(1); 
+  }
+  25% { 
+    transform: translateY(-30px) translateX(15px) scale(1.08); 
+  }
+  50% { 
+    transform: translateY(-20px) translateX(-15px) scale(0.92); 
+  }
+  75% { 
+    transform: translateY(-35px) translateX(8px) scale(1.05); 
+  }
+}
+
+@keyframes parallax-float-alt {
+  0%, 100% { 
+    transform: translateY(0px) translateX(0px) scale(1); 
+  }
+  20% { 
+    transform: translateY(-15px) translateX(-20px) scale(1.1); 
+  }
+  40% { 
+    transform: translateY(-40px) translateX(10px) scale(0.9); 
+  }
+  60% { 
+    transform: translateY(-25px) translateX(-12px) scale(1.03); 
+  }
+  80% { 
+    transform: translateY(-30px) translateX(18px) scale(0.95); 
+  }
+}
+
+@keyframes parallax-float-intense {
+  0%, 100% { 
+    transform: translateY(0px) translateX(0px) scale(1); 
+  }
+  33% { 
+    transform: translateY(-45px) translateX(25px) scale(1.12); 
+  }
+  66% { 
+    transform: translateY(-15px) translateX(-25px) scale(0.88); 
+  }
+}
+
+@keyframes parallax-float-gentle {
+  0%, 100% { 
+    transform: translateY(0px) translateX(0px) scale(1); 
+  }
+  50% { 
+    transform: translateY(-10px) translateX(-5px) scale(1.02); 
+  }
+}
+
+@keyframes parallax-drift {
+  0% { 
+    transform: translateX(-50px) translateY(0px) scale(1); 
+  }
+  25% { 
+    transform: translateX(25px) translateY(-20px) scale(1.05); 
+  }
+  50% { 
+    transform: translateX(50px) translateY(-10px) scale(0.95); 
+  }
+  75% { 
+    transform: translateX(25px) translateY(-25px) scale(1.03); 
+  }
+  100% { 
+    transform: translateX(-50px) translateY(0px) scale(1); 
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/20 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary/40;
+}
